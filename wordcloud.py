@@ -1,0 +1,75 @@
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+#convert list to string and generate
+my_list = ["colours, background, subject", 
+"colours, position and the represented thing itself",
+"More diverse = less correlated",
+"colours, number of objects, blurring, style, relationships among objects, class of objects",
+"Style, sunject, colours, texture, view, cuts",
+"Numbers of objects or individuals, different types of the same objects (various car models, different animals), various painting styles (from sketches to more realistic pictures), different backgrounds (eh atmospheric conditions), different postures",
+"colours and objects",
+"Each time I switched criteria... Colours, number of objects, type of objects, style of the image, times of the day...",
+"Type of objects, style, objects’ arrangement and background variations",
+"Style, colours, image composition", 
+"Diversity of styles, diversity of colours, diversity of objects and background",
+"subject, colours, arrangement",
+"position of the subject",
+"colours and subject",
+"subject",
+"composition, objets themselves, colours",
+"colours, number of objects, class of objects, positioning of objects in the picture",
+"Variety of subject, prospective",
+"Variety and number of objects/animals, colours palette, background detail",
+"What could look like near frames in a video",
+"Number of objects, their shapes, colours, similar art styles",
+"Lines",
+"Point of view (which includes size), colours arrangement (percentage and shape), the objects of the picture, style of drawing",
+"Mostly compositions and subject, when they were similar I looked and colours and technique",
+"colours, number of subject, background, style of the painting",
+"colours, focus, position of the subjects in the picture, style",
+"subject, style of representation, variaty of colours, background",
+"Number of subjects (also the presence of more subjects mixed in a unique one), styles and techniques.",
+"Number and Type of objects, Perspective, Drawing/photography style, colours",
+"Objects",
+"colours, subject, graphic",
+"Objects and situation",
+"colours of the main subject, image style, overall context",
+"I looked at the depicted subject. Therefore, if four images contain a given subjects with same shape and colours, then the four images will be very similar.",
+"subjects and style pursued to represent the subject",
+"colours,positions and number of objects",
+"subjects number, difference in shape, colours",
+"colours, different subject, arrangement of objects, view",
+"colours and actions of the subject",
+"Style, background, representation of objects",
+"colours, number of objects, position, shape, stance",
+"colours",
+"Mostly number of subjects and perspective",
+"Mainly colours + subjects + its position/orientation ",
+"colours ",
+"colours, composition, style",
+"colours, subject, number of subject, style of the photos",
+"Dimensions and colours ",
+"colours, subject, position",
+"colours and nature of the objects",
+"Number and position of objects/people/animals, background, colours",
+"colours, prospective",
+"colours, number of objects, style",
+"Number of objects, background", 
+"Same subject, actions, emotions, style and colours",
+"Colours and positions of objects",
+"colours, shape, landscape",
+"Drawing style, colours",
+"Style, number of objects",
+"style, subject, colours",
+"subject", 
+"Number of objects and colours"]
+my_list = [item.lower() for item in my_list]
+unique_string=(" ").join(my_list)
+wordcloud = WordCloud(background_color="white", width = 1500, height = 800, color_func=lambda *args, **kwargs: "black", max_words=50).generate(unique_string)
+plt.figure(figsize=(15,8))
+plt.imshow(wordcloud)
+plt.axis("off")
+plt.savefig("wordcloud"+".pdf", bbox_inches='tight')
+plt.show()
+plt.close()
